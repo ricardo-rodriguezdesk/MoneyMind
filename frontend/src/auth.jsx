@@ -1,31 +1,36 @@
-import { createContext, useContext, useState } from 'react';
-import { tokenStore } from './lib/api.js';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { api, tokenStore } from './lib/api.js';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem('moneymind_user'));
-    } catch {
-      return null;
-    }
-  });
+  const [user, setUser] = useState(null);
+  // Mientras se confirma la sesión guardada no se decide a qué pantalla ir
+  const [checking, setChecking] = useState(() => Boolean(tokenStore.get()));
+
+  // HU02 — Al abrir la app: si hay una sesión guardada y sigue vigente, entra directo
+  useEffect(() => {
+    if (!tokenStore.get()) return;
+    api('/auth/me')
+      .then(({ user: current }) => setUser(current))
+      .catch((err) => {
+        if (err.status === 401) tokenStore.clear(); // sesión vencida o inválida
+      })
+      .finally(() => setChecking(false));
+  }, []);
 
   function startSession({ token, user: nextUser }) {
     tokenStore.set(token);
-    localStorage.setItem('moneymind_user', JSON.stringify(nextUser));
     setUser(nextUser);
   }
 
   function endSession() {
     tokenStore.clear();
-    localStorage.removeItem('moneymind_user');
     setUser(null);
   }
 
   return (
-    <AuthContext.Provider value={{ user, startSession, endSession }}>
+    <AuthContext.Provider value={{ user, checking, startSession, endSession }}>
       {children}
     </AuthContext.Provider>
   );

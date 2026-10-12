@@ -138,3 +138,18 @@ body {
 .card .muted.center {
   margin-top: 18px;
 }
+
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.forgot a {
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn.secondary {
+  background: #eef2f7;
+  color: var(--navy);
+}
