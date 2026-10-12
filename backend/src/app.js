@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { authRoutes } from './routes/auth.js';
 
 /**
  * Construye la app de Express. Recibe sus dependencias (db, mailer)
@@ -18,6 +19,8 @@ export function createApp({ db }) {
       res.status(503).json({ status: 'error', message: 'Sin conexión a la base de datos' });
     }
   });
+
+  app.use('/api/auth', authRoutes({ db }));
 
   // Manejo de errores no controlados
   // eslint-disable-next-line no-unused-vars

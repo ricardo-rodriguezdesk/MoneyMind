@@ -1,0 +1,16 @@
+▶ HU01 · Registro de cuenta
+  ✔ Paso 1 · datos válidos → se crea la cuenta y regresa sesión (418.864778ms)
+  ✔ Paso 2 · correo ya existente → 409 "Este correo ya está registrado" (360.04898ms)
+  ✔ Paso 3 · contraseña de 5 caracteres → 422 y no crea la cuenta (18.039017ms)
+  ✔ Paso 4 · sin moneda → se guarda con MXN (354.222331ms)
+  ✔ Paso 5 · tabla usuarios → el usuario existe y la contraseña no está en texto plano (357.494576ms)
+  ✔ Extra · varios campos inválidos → 422 con un mensaje por campo (20.912759ms)
+✔ HU01 · Registro de cuenta (1601.870933ms)
+ℹ tests 6
+ℹ suites 1
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1916.555312

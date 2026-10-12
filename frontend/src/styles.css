@@ -52,3 +52,89 @@ body {
   font-size: 14px;
   margin-top: 6px;
 }
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-top: 18px;
+  color: var(--ink);
+}
+.field {
+  margin-top: 16px;
+}
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--mute);
+  margin-bottom: 6px;
+}
+.field input,
+.field select {
+  width: 100%;
+  font: inherit;
+  font-size: 15px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: #fafcfb;
+  outline: none;
+}
+.field input:focus,
+.field select:focus {
+  border-color: var(--purple);
+}
+.field.valid input {
+  border-color: var(--green);
+  background: #effaf5;
+}
+.field.invalid input {
+  border-color: var(--danger);
+  background: #fff4f0;
+}
+.field-error {
+  color: var(--danger);
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+.form-error {
+  color: var(--danger);
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-top: 14px;
+}
+.check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--mute);
+  margin-top: 10px;
+}
+.btn {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px 0;
+  border: none;
+  border-radius: 14px;
+  background: var(--navy);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.card .muted a,
+.link {
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+.card .muted.center {
+  margin-top: 18px;
+}
