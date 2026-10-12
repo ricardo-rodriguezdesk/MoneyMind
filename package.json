@@ -1,0 +1,24 @@
+{
+  "name": "moneymind",
+  "private": true,
+  "version": "0.1.0",
+  "description": "MoneyMind — app de finanzas personales con categorización por IA (Equipo 4B, TecNM Celaya)",
+  "type": "module",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "lint": "eslint backend frontend/src",
+    "format": "prettier --write backend frontend/src db/*.sql --ignore-unknown",
+    "format:check": "prettier --check backend frontend/src --ignore-unknown",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "test": "npm test --prefix backend"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
+  }
+}
